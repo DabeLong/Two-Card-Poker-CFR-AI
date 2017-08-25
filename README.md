@@ -53,3 +53,24 @@ This particular chart is for player one and what kind of hands the CFR agent dec
 So this chart is saying that the player should always raise AA, KK, QQ, ... 88, AKs, AQs, A9o, and K9o. The player should sometimes raise AJs, A8o, and K3o.
 When we interpret this chart, we notice that there are a lot of strong hands, like the pairs and strong suited hands like AKs, AQs, and AJs. Additionally, the player does have some bluffs sometimes, like A9o, A8o, and K3o.
 
+# In depth look into Player Strategies
+![Alt text](/strategy_charts/p1_bet.png?raw=true "P1 Betting Range")
+![Alt text](/strategy_charts/p1_bet_call.png?raw=true "P1 Bet-Call Range")
+![Alt text](/strategy_charts/p1_check_raise.png?raw=true "P1 Check-Raise Range")
+![Alt text](/strategy_charts/p1_check_call.png?raw=true "P1 Check-Call Range")
+
+![Alt text](/strategy_charts/p2_raise.png?raw=true "P2 Raising Range")
+![Alt text](/strategy_charts/p2_call.png?raw=true "P2 Calling Range")
+![Alt text](/strategy_charts/p2_bet.png?raw=true "P2 Bet Range")
+![Alt text](/strategy_charts/p2_bet_call.png?raw=true "P2 Bet-Call Range")
+
+# Summary of Strategies
+
+
+# Further Considerations
+* see how adjusting antes and bet sizing affect results
+* see how adjusting possible starting hands for both players affect results (In a river situation in poker, both players do not have the entire 1328 different possible hands in their range. Additionally ranges can be assymmetrical. This means that the optimal solution for both will be very different)
+* allow customizable/multiple bet sizing
+* begin looking into developing bot for full Texas Hold'Em game
+
+
