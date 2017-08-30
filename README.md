@@ -59,7 +59,7 @@ When we interpret this chart, we notice that there are a lot of strong hands, li
 ![Alt text](/strategy_charts/p1_check_raise.png?raw=true "P1 Check-Raise Range")
 ![Alt text](/strategy_charts/p1_check_call.png?raw=true "P1 Check-Call Range")
 
-![Alt text](/strategy_charts/p2_raise.png?raw=true "P2 Raising Range")
+![Alt text](/strategy_charts/p2_raise_allin.png?raw=true "P2 Raising Range")
 ![Alt text](/strategy_charts/p2_call.png?raw=true "P2 Calling Range")
 ![Alt text](/strategy_charts/p2_bet.png?raw=true "P2 Bet Range")
 ![Alt text](/strategy_charts/p2_bet_call.png?raw=true "P2 Bet-Call Range")
