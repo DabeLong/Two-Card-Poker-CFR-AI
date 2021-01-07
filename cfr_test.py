@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from matplotlib.table import Table
+
 from cfr import CFR
 
 cfr = CFR()
@@ -10,10 +11,13 @@ bet2 = 8.0
 util = cfr.train(40000000, ante, bet1, bet2)
 
 label = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
-rank_index_map = {'A': 0, 'K': 1, 'Q': 2,
-'J': 3, 'T': 4, '9': 5,
-'8': 6, '7': 7, '6': 8,
-'5': 9, '4': 10, '3': 11, '2': 12}
+rank_index_map = {
+    'A': 0, 'K': 1, 'Q': 2,
+    'J': 3, 'T': 4, '9': 5,
+    '8': 6, '7': 7, '6': 8,
+    '5': 9, '4': 10, '3': 11, '2': 12,
+}
+
 
 def get_color(frequency):
     if frequency >= 0.9:
@@ -29,10 +33,11 @@ def get_color(frequency):
     else:
         return 'red'
 
+
 def create_table(title, frequencies):
     fig, ax = plt.subplots()
     ax.set_axis_off()
-    tb = Table(ax, bbox=[0,0,1,1])
+    tb = Table(ax, bbox=[0, 0, 1, 1])
 
     nrows, ncols = len(label), len(label)
     width, height = 1.0 / ncols, 1.0 / nrows
@@ -55,8 +60,9 @@ def create_table(title, frequencies):
                     edgecolor='none', facecolor='none')
     # Column Labels...
     for j in range(len(label)):
-        tb.add_cell(0, j, width, height/2, text=label[j], loc='center',
-                           edgecolor='none', facecolor='none')
+        tb.add_cell(
+            0, j, width, height / 2,
+            text=label[j], loc='center', edgecolor='none', facecolor='none')
     ax.add_table(tb)
     plt.title(title)
     return fig
