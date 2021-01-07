@@ -1,3 +1,6 @@
+from __future__ import print_function
+import json
+
 import matplotlib.pyplot as plt
 from matplotlib.table import Table
 
@@ -71,6 +74,8 @@ def create_table(title, frequencies):
 print("Player One Expected Value Per Hand: %f" % util)
 
 result = cfr.get_strategy()
+with open('strategy_charts/strategy.json', 'w') as stream:
+    print(json.dumps(result), file=stream)
 
 for decision in sorted(result):
     table = create_table(decision, result[decision])
