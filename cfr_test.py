@@ -62,7 +62,7 @@ def create_table(title, frequencies):
     return fig
 
 
-print "Player One Expected Value Per Hand: %f" % util
+print("Player One Expected Value Per Hand: %f" % util)
 
 result = cfr.get_strategy()
 

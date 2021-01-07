@@ -8,7 +8,13 @@ class Game():
 
     RANKS = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
     SUITS = ['h', 's', 'd', 'c']
-    DECK = [rank + suit for rank in RANKS for suit in SUITS]
+
+    DECK = []
+    for rank in RANKS:
+        for suit in SUITS:
+            # List comprehensions do not work in classes
+            # so we build the deck manually
+            DECK.append(rank + suit)
 
     @staticmethod
     def deal_cards():
@@ -146,11 +152,11 @@ class CFR():
         self.bet1 = bet1
         self.bet2 = bet2
 
-        print "Ante: %f   Bet-1: %f   Bet-2: %f" % (ante, bet1, bet2)
+        print("Ante: %f   Bet-1: %f   Bet-2: %f" % (ante, bet1, bet2))
 
         for i in range(iterations):
             if i % print_interval == 0 and i != 0:
-                print "P1 expected value after %i iterations: %f" % (i, util/i)
+                print("P1 expected value after %i iterations: %f" % (i, util / i))
 
             # if random.random() < 0.08:
             #     if random.random() < 0.5:
