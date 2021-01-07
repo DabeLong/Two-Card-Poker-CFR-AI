@@ -1,5 +1,7 @@
 import random
 
+from utils.progress_refresh import IncrementalDelayBar
+
 
 class Game():
     BET = '0'
@@ -157,24 +159,28 @@ class CFR():
 
         print("Ante: %f   Bet-1: %f   Bet-2: %f" % (ante, bet1, bet2))
 
-        for i in range(iterations):
-            if i % print_interval == 0 and i != 0:
-                print("P1 expected value after %i iterations: %f" % (i, util / i))
+        with IncrementalDelayBar('Training', max=iterations) as progress_bar:
+            for i in range(iterations):
+                if i % print_interval == 0 and i != 0:
+                    progress_bar.writeln('')
+                    print("\rP1 expected value after %i iterations: %f" % (i, util / i))
 
-            # if random.random() < 0.08:
-            #     if random.random() < 0.5:
-            #         player_one_cards, player_two_cards = Game.deal_cards_biased(True)
-            #     else:
-            #         player_one_cards, player_two_cards = Game.deal_cards_biased(False)
-            # else:
-            #     player_one_cards, player_two_cards = Game.deal_cards()
+                # if random.random() < 0.08:
+                #     if random.random() < 0.5:
+                #         player_one_cards, player_two_cards = Game.deal_cards_biased(True)
+                #     else:
+                #         player_one_cards, player_two_cards = Game.deal_cards_biased(False)
+                # else:
+                #     player_one_cards, player_two_cards = Game.deal_cards()
 
-            player_one_cards, player_two_cards = Game.deal_cards()
-            p1_hand = self.simplify_hand(player_one_cards)
-            p2_hand = self.simplify_hand(player_two_cards)
-            cards = [p1_hand, p2_hand]
-            history = list()
-            util += self.cfr(cards, history, 1, 1)
+                player_one_cards, player_two_cards = Game.deal_cards()
+                p1_hand = self.simplify_hand(player_one_cards)
+                p2_hand = self.simplify_hand(player_two_cards)
+                cards = [p1_hand, p2_hand]
+                history = list()
+                util += self.cfr(cards, history, 1, 1)
+
+                progress_bar.next()
 
         return util / iterations
 
